@@ -8,16 +8,25 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50)
     
+    def __str__(self):
+        return self.nome
+    
     
 
 class Pizza(models.Model):
     sabor = models.CharField(max_length=50)
     precoBase = models.FloatField()
+    
+    def __str__(self):
+        return self.sabor
 
 
 class Tamanho(models.Model):
     nome = models.CharField(max_length=50)
     modificador = models.FloatField()
+    
+    def __str__(self):
+        return self.nome
     
     
 class Pedido(models.Model):
