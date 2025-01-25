@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +29,6 @@ SECRET_KEY = "django-insecure-@9^ulwy4ba_kz9@3^h!)tl!!kkaw*_wi^$bo&*7-tes(^wikc1
 DEBUG = True
 
 ALLOWED_HOSTS = config('HOSTS').split(',')
-print(ALLOWED_HOSTS)
 CORS_ALLOWED_ORIGINS = config('CORS').split(',')
 
 
@@ -82,15 +83,23 @@ WSGI_APPLICATION = "pizzariaApi.wsgi.application"
 
 
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": config("NAME"),
+#         "USER": config("USER"),
+#         "PASSWORD": config("PASSWORD"),
+#         "HOST": config("HOST"),
+#         "PORT": config("PORT"),
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("NAME"),
-        "USER": config("USER"),
-        "PASSWORD": config("PASSWORD"),
-        "HOST": config("HOST"),
-        "PORT": config("PORT"),
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL'),  
+        conn_max_age=600,  
+        ssl_require=True  
+    )
 }
 
 
