@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nome": "Grande",
+        "modificador": 2.0
+    },
+    {
+        "id": 2,
+        "nome": "Média",
+        "modificador": 1.75
+    },
+    {
+        "id": 3,
+        "nome": "Pequena",
+        "modificador": 1.5
+    }
+]

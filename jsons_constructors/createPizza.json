@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "sabor": "Margarita",
+        "precoBase": 29.9
+    },
+    {
+        "id": 2,
+        "sabor": "Calabresa",
+        "precoBase": 32.5
+    },
+    {
+        "id": 3,
+        "sabor": "Frango com Catupiry",
+        "precoBase": 35.0
+    }
+]

@@ -1,0 +1,56 @@
+// CRIAÇÃO DE CLIENTE
+// http://127.0.0.1:8000/api/clientes/
+
+  {
+    "nome": "João",
+    "endereco": "Rua X, 123",
+    "telefone": "123456789",
+    "bairro": "Centro"
+  }
+  
+  
+  // CRIAÇÃO DE PIZZA
+  // http://127.0.0.1:8000/api/pizzas/
+  
+  {
+    "sabor": "Calabresa Pícante",
+    "precoBase": 35.00
+  }
+  
+  
+  // CRIAÇÃO DE TAMANHO DE PIZZA
+  // http://127.0.0.1:8000/api/tamanhos/
+  
+  {
+    "nome": "Média",
+    "modificador": 1.5
+  }
+  
+  
+  // CRIAÇÃO DE PEDIDO
+  // http://127.0.0.1:8000/api/pedidos/
+  
+  {
+    "cliente_pedido": 1
+  }
+  
+  
+  // ADICIONAR ITEM AO PEDIDO
+  // http://127.0.0.1:8000/api/itenspedidos/
+  
+  {
+    "itensPedido_pedido": 1,
+    "id_pizza": 1,
+    "id_tamanho": 1,
+    "quantidade": 2
+  }
+  
+  
+  // FINALIZAR PEDIDO
+  // http://127.0.0.1:8000/api/pedidos/1/
+  
+  {
+    "status": "finalizado",
+    "cliente_pedido": 1
+  }
+  

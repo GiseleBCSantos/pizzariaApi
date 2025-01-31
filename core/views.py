@@ -38,7 +38,10 @@ class RetrieveUpdateDestroyTamanhoApiView(RetrieveUpdateDestroyAPIView):
 class ListCreatePedidoApiView(ListCreateAPIView):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
-
+    
+    def perform_create(self, serializer):
+        pedido = serializer.save()
+        pedido.calcular_total()
 
 class RetrieveUpdateDestroyPedidoApiView(RetrieveUpdateDestroyAPIView):
     queryset = Pedido.objects.all()
@@ -48,6 +51,9 @@ class ListCreateItemPedidoApiView(ListCreateAPIView):
     queryset = ItensPedido.objects.all()
     serializer_class = ItemPedidoSerializer
 
+    def perform_create(self, serializer):
+        item = serializer.save()
+        item.itensPedido_pedido.calcular_total()
 
 class RetrieveUpdateDestroyItemPedidoApiView(RetrieveUpdateDestroyAPIView):
     queryset = ItensPedido.objects.all()
