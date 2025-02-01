@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nome": "João Silva",
+        "endereco": "Rua A, 123",
+        "telefone": "(11) 91234-5678",
+        "bairro": "Centro"
+    },
+    {
+        "id": 2,
+        "nome": "Maria Oliveira",
+        "endereco": "Avenida Brasil, 456",
+        "telefone": "(21) 99876-5432",
+        "bairro": "Zona Sul"
+    },
+    {
+        "id": 3,
+        "nome": "Carlos Souza",
+        "endereco": "Rua das Flores, 789",
+        "telefone": "(31) 93456-7890",
+        "bairro": "Belo Horizonte"
+    },
+    {
+        "id": 4,
+        "nome": "Fernanda Lima",
+        "endereco": "Rua das Palmeiras, 101",
+        "telefone": "(41) 96789-0123",
+        "bairro": "Curitiba"
+    },
+    {
+        "id": 5,
+        "nome": "Roberto Costa",
+        "endereco": "Avenida das Nações, 202",
+        "telefone": "(71) 99887-6543",
+        "bairro": "Salvador"
+    },
+    {
+        "id": 6,
+        "nome": "Venancio Souza",
+        "endereco": "Morada do Sol 123",
+        "telefone": "8669696969",
+        "bairro": "Santa Maria"
+    }
+]
