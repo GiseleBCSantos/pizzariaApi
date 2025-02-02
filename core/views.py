@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
 from .serializers import *
 from .models import *
 
@@ -35,25 +35,43 @@ class RetrieveUpdateDestroyTamanhoApiView(RetrieveUpdateDestroyAPIView):
     serializer_class = TamanhoSerializer
     
     
-class ListCreatePedidoApiView(ListCreateAPIView):
+class ListPedidoApiView(ListAPIView):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
-    
-    def perform_create(self, serializer):
-        pedido = serializer.save()
-        pedido.calcular_total()
+
+
+class CreatePedidoApiView(CreateAPIView):
+    queryset = Pedido.objects.all()
+    serializer_class = PedidoSerializerAdd
+
 
 class RetrieveUpdateDestroyPedidoApiView(RetrieveUpdateDestroyAPIView):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
 
-class ListCreateItemPedidoApiView(ListCreateAPIView):
+    # def perform_create(self, serializer):
+    #     pedido = serializer.save()
+    #     pedido.calcular_total()
+    #     pedido.save()
+        
+
+class CreateItemPedidoApiView(CreateAPIView):
+    queryset = ItensPedido.objects.all()
+    serializer_class = ItemPedidoSerializerAdd
+
+    
+    def perform_create(self, serializer):
+        item = serializer.save()
+        item.pedido.calcular_total()
+        item.incrementar_total()
+        item.pedido.save()
+    
+
+class ListItemPedidoApiView(ListAPIView):
     queryset = ItensPedido.objects.all()
     serializer_class = ItemPedidoSerializer
 
-    def perform_create(self, serializer):
-        item = serializer.save()
-        item.itensPedido_pedido.calcular_total()
+    
 
 class RetrieveUpdateDestroyItemPedidoApiView(RetrieveUpdateDestroyAPIView):
     queryset = ItensPedido.objects.all()

@@ -30,6 +30,19 @@ DEBUG = False
 
 ALLOWED_HOSTS = config('HOSTS').split(',')
 CORS_ALLOWED_ORIGINS = config('CORS').split(',')
+# CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_HEADERS = [  # Permite headers comuns
+    "content-type",
+    "authorization",
+    "x-requested-with",
+    "accept",
+    "origin",
+    "user-agent",
+    "referer",
+    "method",  # Adicione esse, pois o erro menciona isso
+]
+# print(CORS_ALLOWED_ORIGINS)
 
 
 # Application definition
@@ -41,13 +54,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
     "corsheaders",
+    "rest_framework",
     "core",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -135,11 +149,11 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
