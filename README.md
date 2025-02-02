@@ -5,7 +5,7 @@ Esta é a API para gerenciamento de pedidos de uma pizzaria desenvolvida para a 
 ## 🛠️ Tecnologias Utilizadas
 
 - Django Rest Framework (DRF)
-- SQLite (pode ser substituído por outro banco de dados)
+- Postgresql
 - Railway para hospedagem
 
 ## 📃 Endpoints
@@ -37,7 +37,7 @@ Esta é a API para gerenciamento de pedidos de uma pizzaria desenvolvida para a 
 ### 📦 Pedidos
 
 - `GET /pedido/` - Lista todos os pedidos
-- `POST /pedido/add/` - Cria um novo pedido
+- `POST /pedido/` - Cria um novo pedido
 - `GET /pedido/{id}/` - Retorna um pedido pelo ID
 - `PUT /pedido/{id}/` - Atualiza um pedido pelo ID
 - `DELETE /pedido/{id}/` - Remove um pedido pelo ID
@@ -45,7 +45,7 @@ Esta é a API para gerenciamento de pedidos de uma pizzaria desenvolvida para a 
 ### 🛒 Itens do Pedido
 
 - `GET /itempedido/` - Lista todos os itens dos pedidos
-- `POST /itempedido/add/` - Adiciona um item a um pedido
+- `POST /itempedido/` - Adiciona um item a um pedido
 - `GET /itempedido/{id}/` - Retorna um item do pedido pelo ID
 - `PUT /itempedido/{id}/` - Atualiza um item do pedido pelo ID
 - `DELETE /itempedido/{id}/` - Remove um item do pedido pelo ID
