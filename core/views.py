@@ -35,42 +35,35 @@ class RetrieveUpdateDestroyTamanhoApiView(RetrieveUpdateDestroyAPIView):
     serializer_class = TamanhoSerializer
     
     
-class ListPedidoApiView(ListAPIView):
+class ListCreatePedidoApiView(ListCreateAPIView):
     queryset = Pedido.objects.all()
-    serializer_class = PedidoSerializer
+    # serializer_class = PedidoSerializer
 
-
-class CreatePedidoApiView(CreateAPIView):
-    queryset = Pedido.objects.all()
-    serializer_class = PedidoSerializerAdd
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return PedidoSerializerAdd
+        return PedidoSerializer
 
 
 class RetrieveUpdateDestroyPedidoApiView(RetrieveUpdateDestroyAPIView):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSerializer
-
-    # def perform_create(self, serializer):
-    #     pedido = serializer.save()
-    #     pedido.calcular_total()
-    #     pedido.save()
         
 
-class CreateItemPedidoApiView(CreateAPIView):
+class ListCreateItemPedidoApiView(ListCreateAPIView):
     queryset = ItensPedido.objects.all()
-    serializer_class = ItemPedidoSerializerAdd
+    # serializer_class = ItemPedidoSerializerAdd
 
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return ItemPedidoSerializerAdd
+        return ItemPedidoSerializer
     
     def perform_create(self, serializer):
         item = serializer.save()
         item.pedido.calcular_total()
         item.incrementar_total()
         item.pedido.save()
-    
-
-class ListItemPedidoApiView(ListAPIView):
-    queryset = ItensPedido.objects.all()
-    serializer_class = ItemPedidoSerializer
-
     
 
 class RetrieveUpdateDestroyItemPedidoApiView(RetrieveUpdateDestroyAPIView):
